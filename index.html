@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Byron Beane — Casting Director & Creative Producer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+  :root {
+    --primary: #1a1a1a;
+    --secondary: #3a3a3a;
+    --tertiary: #888888;
+    --accent: #b8a898;
+    --bg: #f9f7f5;
+    --bg-alt: #f0ede9;
+    --white: #ffffff;
+    --pill-bg: #eeebe7;
+    --pill-text: #3a3a3a;
+    --border: #e0dbd5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--primary);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(249,247,245,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+  }
+  .nav-logo .byron { color: var(--primary); }
+  .nav-logo .beane { color: var(--tertiary); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--primary); }
+
+  /* SECTIONS */
+  section { padding: 100px 48px; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--tertiary);
+    margin-bottom: 20px;
+  }
+
+  .section-heading {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    margin-bottom: 32px;
+  }
+  .section-heading .light { color: var(--tertiary); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 120px;
+    padding-bottom: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--tertiary);
+    margin-bottom: 28px;
+  }
+
+  .hero-name {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    font-size: clamp(56px, 9vw, 120px);
+    letter-spacing: 0.06em;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .hero-name .byron { color: var(--primary); }
+  .hero-name .beane { color: var(--tertiary); }
+
+  .hero-tagline {
+    font-size: clamp(15px, 2vw, 20px);
+    font-weight: 300;
+    color: var(--secondary);
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-statement {
+    font-size: clamp(13px, 1.4vw, 16px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--tertiary);
+    margin-bottom: 48px;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--secondary); }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { background: var(--primary); color: var(--white); }
+
+  /* ABOUT */
+  #about {
+    background: var(--bg-alt);
+    padding: 100px 48px;
+  }
+
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: grayscale(8%);
+  }
+
+  .about-text p {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    line-height: 1.75;
+  }
+
+  /* CASTING */
+  #casting {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 48px;
+  }
+
+  .casting-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .casting-card {
+    background: var(--bg-alt);
+    padding: 40px 36px;
+  }
+
+  .casting-card h3 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    color: var(--primary);
+  }
+
+  .casting-card p {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--secondary);
+    line-height: 1.7;
+  }
+
+  /* CREDITS */
+  #credits {
+    background: var(--bg-alt);
+    padding: 100px 48px;
+  }
+
+  .credits-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .credits-body {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+
+  .credits-col h3 {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--tertiary);
+    margin-bottom: 20px;
+  }
+
+  .credits-col p {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .credits-col a {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--primary);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .credits-col a:hover { color: var(--tertiary); border-color: var(--tertiary); }
+
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .pill {
+    background: var(--pill-bg);
+    color: var(--pill-text);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    padding: 8px 16px;
+    border-radius: 0;
+  }
+
+  /* TEACHING */
+  #teaching {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 48px;
+  }
+
+  .teaching-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 48px;
+    align-items: start;
+  }
+
+  .teaching-text p {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--secondary);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .coming-soon-banner {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    margin-top: 8px;
+  }
+
+  .teaching-details {
+    background: var(--bg-alt);
+    padding: 40px;
+  }
+
+  .teaching-details h3 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    margin-bottom: 24px;
+    color: var(--primary);
+  }
+
+  .teaching-details ul {
+    list-style: none;
+    margin-bottom: 28px;
+  }
+
+  .teaching-details ul li {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--secondary);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.6;
+  }
+
+  .teaching-details ul li:last-child { border-bottom: none; }
+
+  /* CONTACT */
+  #contact {
+    background: var(--primary);
+    padding: 100px 48px;
+  }
+
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-intro .section-label { color: var(--accent); }
+
+  .contact-intro .section-heading { color: var(--white); }
+  .contact-intro .section-heading .light { color: var(--accent); }
+
+  .contact-intro p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #aaaaaa;
+    line-height: 1.75;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 14px 18px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus { border-color: rgba(255,255,255,0.4); }
+
+  .contact-form textarea { min-height: 140px; resize: vertical; }
+
+  .contact-form .btn-submit {
+    background: var(--white);
+    color: var(--primary);
+    border: none;
+    padding: 14px 32px;
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    align-self: flex-start;
+  }
+  .contact-form .btn-submit:hover { background: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    background: #111111;
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-logo {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+  }
+  .footer-logo .byron { color: rgba(255,255,255,0.8); }
+  .footer-logo .beane { color: rgba(255,255,255,0.35); }
+
+  footer p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.04em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 18px 24px; }
+    .nav-links { gap: 20px; }
+    section { padding: 72px 24px; }
+    #hero { padding: 120px 24px 60px; }
+    .about-inner,
+    .credits-body,
+    .teaching-grid,
+    .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+    .casting-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo"><span class="byron">BYRON</span><span class="beane">BEANE</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#casting">Casting</a></li>
+    <li><a href="#credits">Credits</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <p class="hero-eyebrow">Casting Director &nbsp;/&nbsp; Creative Producer &nbsp;/&nbsp; Audition Coach</p>
+  <h1 class="hero-name"><span class="byron">BYRON</span><span class="beane">BEANE</span></h1>
+  <p class="hero-tagline">Los Angeles &nbsp;&middot;&nbsp; Film &nbsp;&middot;&nbsp; Television &nbsp;&middot;&nbsp; Commercial</p>
+  <p class="hero-statement">Casting isn't support. It's architecture.</p>
+  <div class="hero-ctas">
+    <a href="#contact" class="btn-primary">Let's Collaborate</a>
+    <a href="#teaching" class="btn-secondary">The Authentic Audition Class</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-photo-wrap">
+      <!-- Headshot placeholder — replace src with embedded base64 or hosted URL -->
+      <img
+        class="about-photo"
+        src="headshot-placeholder.jpg"
+        alt="Byron Beane"
+        onerror="this.style.background='#ddd9d4';this.removeAttribute('src')"
+      />
+    </div>
+    <div class="about-text">
+      <p class="section-label">About</p>
+      <h2 class="section-heading"><span>Byron</span> <span class="light">Beane</span></h2>
+      <p>Byron Beane is a Los Angeles-based Casting Director and Creative Producer with deep roots in film, television, and commercial production. He approaches every project with the same conviction: the cast is the creative foundation, not a finishing touch.</p>
+      <p>With experience across independent features, studio productions, and branded content, Byron brings both rigor and intuition to the process. He works closely with directors and producers to find not just the right person, but the right version of the story.</p>
+      <p>Alongside his casting work, Byron is a dedicated audition coach through his practice, The Authentic Audition, helping actors connect more honestly with the material and with themselves.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CASTING -->
+<section id="casting">
+  <p class="section-label">What I Do</p>
+  <h2 class="section-heading"><span>Casting</span> <span class="light">Services</span></h2>
+  <div class="casting-grid">
+    <div class="casting-card">
+      <h3>Film &amp; Television</h3>
+      <p>Full-service casting for independent and studio productions. From breakdown to offers, with a strong network of talent across Los Angeles and beyond.</p>
+    </div>
+    <div class="casting-card">
+      <h3>Commercial &amp; Branded</h3>
+      <p>Fast, precise, and creatively engaged. Byron works directly with agencies, brands and Directors to find the talent that earns consumer trust, within the storytelling.</p>
+    </div>
+    <div class="casting-card">
+      <h3>Creative Consultation</h3>
+      <p>Early-stage story conversations, character development, and ensemble architecture. Collaborating with creative, bringing to life a fully realized world from pages to screen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CREDITS -->
+<section id="credits">
+  <div class="credits-inner">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-heading"><span>Credits</span></h2>
+    <div class="credits-body">
+      <div class="credits-col">
+        <h3>Film &amp; Television</h3>
+        <p>A full list of film and television credits is available on IMDb.</p>
+        <a href="https://www.imdb.com/name/nm4074026/?ref_=fn_t_1" target="_blank" rel="noopener">View on IMDb &rarr;</a>
+      </div>
+      <div class="credits-col">
+        <h3>Commercial</h3>
+        <div class="pills">
+          <span class="pill">Roomba</span>
+          <span class="pill">Delsym</span>
+          <span class="pill">Samsung</span>
+          <span class="pill">Mike's Lite Hard Lemonade</span>
+          <span class="pill">Hershey's</span>
+          <span class="pill">Familiar Machines &amp; Magic</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <p class="section-label">Teaching</p>
+  <h2 class="section-heading"><span>The Authentic</span> <span class="light">Audition</span></h2>
+  <div class="teaching-grid">
+    <div class="teaching-text">
+      <p>The Authentic Audition is Byron's coaching practice for actors who are technically solid but hitting a ceiling. The work is specific, honest, and grounded in what actually happens in the room.</p>
+      <p>Byron teaches from the casting side of the table, which means less theory and more direct insight into what directors and producers are looking for, and why most auditions don't land.</p>
+      <div class="coming-soon-banner">Classes coming soon</div>
+    </div>
+    <div class="teaching-details">
+      <h3>What to Expect</h3>
+      <ul>
+        <li>Scene work with real-time feedback from a working casting director</li>
+        <li>Cold reading and self-tape technique</li>
+        <li>Understanding the room: what happens after you leave</li>
+        <li>Small group format for focused attention</li>
+        <li>Los Angeles based, select sessions available remotely</li>
+      </ul>
+      <a href="#contact" class="btn-secondary">Get notified</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-intro">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-heading"><span>Let's</span> <span class="light">Talk</span></h2>
+      <p>Whether you're developing a project, looking for a casting partner, or interested in upcoming classes, the best first step is a conversation.</p>
+    </div>
+    <form
+      class="contact-form"
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+    >
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Email address" required />
+      <input type="text" name="subject" placeholder="Subject" />
+      <textarea name="message" placeholder="Tell me what you're working on"></textarea>
+      <button type="submit" class="btn-submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#hero" class="footer-logo"><span class="byron">BYRON</span><span class="beane">BEANE</span></a>
+  <p>&copy; 2025 Byron Beane. Los Angeles, CA.</p>
+</footer>
+
+</body>
+</html>
