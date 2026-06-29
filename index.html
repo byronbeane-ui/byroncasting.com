@@ -180,39 +180,43 @@
   .btn-secondary:hover { background: var(--primary); color: var(--white); }
 
   /* ABOUT */
-  #about {
-    background: var(--bg-alt);
-    padding: 100px 48px;
-  }
+#about {
+  background: var(--bg-alt);
+  padding: 100px 48px;
+}
 
 .about-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
 
- .about-photo-wrap {
-    display: block;
-  }
+.about-photo-wrap {
+  display: block;
+}
 
-  .about-photo {
-    width: 100%;
-  aspect-ratio: 3/5
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-    filter: grayscale(8%);
-  }
-  .about-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.about-photo {
+  width: 100%;
+  display: block;
+  filter: grayscale(8%);
+}
 
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-text p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--secondary);
+  margin-bottom: 20px;
+  line-height: 1.75;
+}
   /* CASTING */
   #casting {
     max-width: 1200px;
